@@ -67,10 +67,10 @@ class Business extends \GatewayWorker\BusinessWorker implements ProcessInterface
     {
         $this->_onWorkerStart  = $this->onWorkerStart;
         $this->_onWorkerReload = $this->onWorkerReload;
-        $this->_onWorkerStop = $this->onWorkerStop;
-        $this->onWorkerStop   = array($this, 'onWorkerStop');
-        $this->onWorkerStart   = array($this, 'onWorkerStart');
-        $this->onWorkerReload  = array($this, 'onWorkerReload');
+        $this->_onWorkerStop   = $this->onWorkerStop;
+        $this->onWorkerStop    = [$this, 'onWorkerStop'];
+        $this->onWorkerStart   = [$this, 'onWorkerStart'];
+        $this->onWorkerReload  = [$this, 'onWorkerReload'];
 
         $args = func_get_args();
         $this->id = $args[0]->id;
