@@ -12,12 +12,12 @@ return [
     // 本机ip，分布式部署时使用内网ip
     'lanIp'                 => '127.0.0.1',
     //内部通讯起始端口，假如$gateway->count = 4，起始端口为4000, 则一般会使用4000 4001 4002 4003 4个端口作为内部通讯端口，注意：起始端口不要重复
-    'startPort'             => 2900,
+    'startPort'             => 9000,
     // 心跳间隔
-    'pingInterval'          => 20,
-    // 心跳数据
+    'pingInterval'          => 60,
+    // 心跳数据，不为空时，由服务端定时向客户端发送心跳数据（不推荐）
     'pingData'              => '',
-    // 多少心跳间隔时间内客户端未报通信则断开连接（pingInterval * pingNotResponseLimit = 时间间隔）
+    // 多少心跳间隔时间内客户端未报通信则断开连接(pingInterval * pingNotResponseLimit = 时间间隔)，0表示允许客户端不发送心跳
     'pingNotResponseLimit'  => 1,
     // Register进程服务注册地址
     'registerAddress'       => '127.0.0.1:1236',
