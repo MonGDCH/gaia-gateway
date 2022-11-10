@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app;
+namespace support\gateway;
 
 use GatewayWorker\Lib\Gateway;
 use GatewayWorker\BusinessWorker;
@@ -13,7 +13,7 @@ use GatewayWorker\BusinessWorker;
  * @author Mon <985558837@qq.com>
  * @version 1.0.0
  */
-class GatewayEvent
+class Event
 {
     /**
      * 当businessWorker进程启动时触发。每个进程生命周期内都只会触发一次。
