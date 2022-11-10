@@ -28,7 +28,7 @@ class Install
         'process/Business.php'      => 'process/gateway/Business.php',
         'process/Gateway.php'       => 'process/gateway/Gateway.php',
         'process/Register.php'      => 'process/gateway/Register.php',
-        'process/GatewayEvent.php'  => 'support/gateway/Event.php',
+        'process/Event.php'         => 'support/gateway/Event.php',
     ];
 
     /**

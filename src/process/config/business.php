@@ -12,5 +12,5 @@ return [
     // 注册中心地址
     'registerAddress'   => '127.0.0.1:1236',
     // 事件回调处理对象
-    'eventHandler'      => \app\GatewayEvent::class
+    'eventHandler'      => \support\gateway\Event::class
 ];
