@@ -4,19 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a6aa57540eced998dd924cb4e3fe5eb",
+    "content-hash": "85a00dcf298ad9dbf69122b31cb1db12",
     "packages": [
         {
             "name": "workerman/gateway-worker",
-            "version": "v4.0.0",
+            "version": "v3.0.27",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/GatewayWorker.git",
+                "reference": "c0cae6c0e69288ab7dcc8b25599d3b9e4f4441d2"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.cloud.tencent.com/repository/composer/workerman/gateway-worker/v4.0.0/workerman-gateway-worker-v4.0.0.zip",
-                "reference": "a3e26fa33e41cc7fec4d068414867e971278d572",
+                "url": "https://api.github.com/repos/walkor/GatewayWorker/zipball/c0cae6c0e69288ab7dcc8b25599d3b9e4f4441d2",
+                "reference": "c0cae6c0e69288ab7dcc8b25599d3b9e4f4441d2",
                 "shasum": ""
             },
             "require": {
-                "workerman/workerman": "^4.0.30"
+                "workerman/workerman": "^4.0.0 || ^5.0.0"
             },
             "type": "library",
             "autoload": {
@@ -24,6 +29,7 @@
                     "GatewayWorker\\": "./src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -32,14 +38,33 @@
                 "communication",
                 "distributed"
             ],
-            "time": "2022-09-14T07:02:21+00:00"
+            "support": {
+                "issues": "https://github.com/walkor/GatewayWorker/issues",
+                "source": "https://github.com/walkor/GatewayWorker/tree/v3.0.27"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/walkor",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/walkor",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2023-02-09T09:16:04+00:00"
         },
         {
             "name": "workerman/gatewayclient",
             "version": "v3.0.14",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/GatewayClient.git",
+                "reference": "4362468d68251015b2b385c310252afb4d6648ed"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.cloud.tencent.com/repository/composer/workerman/gatewayclient/v3.0.14/workerman-gatewayclient-v3.0.14.zip",
+                "url": "https://api.github.com/repos/walkor/GatewayClient/zipball/4362468d68251015b2b385c310252afb4d6648ed",
                 "reference": "4362468d68251015b2b385c310252afb4d6648ed",
                 "shasum": ""
             },
@@ -49,19 +74,29 @@
                     "GatewayClient\\": "./"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "homepage": "http://www.workerman.net",
+            "support": {
+                "issues": "https://github.com/walkor/GatewayClient/issues",
+                "source": "https://github.com/walkor/GatewayClient/tree/v3.0.14"
+            },
             "time": "2021-11-29T07:03:50+00:00"
         },
         {
             "name": "workerman/workerman",
-            "version": "v4.1.1",
+            "version": "v4.1.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/workerman.git",
+                "reference": "1f92d02c26106b5fbe6f61ea776198aad6e426f7"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://mirrors.cloud.tencent.com/repository/composer/workerman/workerman/v4.1.1/workerman-workerman-v4.1.1.zip",
-                "reference": "e535daf8c5778dd05ab75bcc0ba9e1959b1a4ce5",
+                "url": "https://api.github.com/repos/walkor/workerman/zipball/1f92d02c26106b5fbe6f61ea776198aad6e426f7",
+                "reference": "1f92d02c26106b5fbe6f61ea776198aad6e426f7",
                 "shasum": ""
             },
             "require": {
@@ -76,6 +111,7 @@
                     "Workerman\\": "./"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -93,7 +129,24 @@
                 "asynchronous",
                 "event-loop"
             ],
-            "time": "2022-09-19T04:08:49+00:00"
+            "support": {
+                "email": "walkor@workerman.net",
+                "forum": "http://wenda.workerman.net/",
+                "issues": "https://github.com/walkor/workerman/issues",
+                "source": "https://github.com/walkor/workerman",
+                "wiki": "http://doc.workerman.net/"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/workerman",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/walkor",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2023-03-10T13:59:12+00:00"
         }
     ],
     "packages-dev": [],
@@ -106,5 +159,5 @@
         "php": ">=7.2.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.3.0"
 }
