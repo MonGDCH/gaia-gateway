@@ -8,15 +8,13 @@
 |
 */
 
-use process\gateway\Register;
-
 return [
     // 启用
     'enable'    => true,
     // 进程配置
     'config'    => [
         // 进程数
-        'count' => cpu_count(),
+        'count' => \gaia\App::cpuCount(),
     ],
     // gateway属性配置
     'property'  => [

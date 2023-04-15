@@ -25,10 +25,7 @@ class Install
      * @var array
      */
     protected static $file_relation = [
-        'process/Business.php'      => 'process/gateway/Business.php',
-        'process/Gateway.php'       => 'process/gateway/Gateway.php',
-        'process/Register.php'      => 'process/gateway/Register.php',
-        'process/Event.php'         => 'app/gateway/Event.php',
+        'Event.php'             => 'app/gateway/Event.php',
     ];
 
     /**
@@ -37,7 +34,8 @@ class Install
      * @var array
      */
     protected static $dir_relation = [
-        'process/config' => 'config/gateway'
+        'config'    => 'config/gateway',
+        'process'   => 'process/gateway'
     ];
 
     /**
