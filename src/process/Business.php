@@ -5,25 +5,18 @@ declare(strict_types=1);
 namespace process\gateway;
 
 use mon\env\Config;
+use gaia\ProcessTrait;
 use gaia\interfaces\ProcessInterface;
 
 /**
- * gateway\BusinessWorker
+ * gatewaywork 的 business 服务进程
  * 
  * @author Mon <985558837@qq.com>
  * @version 1.0.0
  */
 class Business extends \GatewayWorker\BusinessWorker implements ProcessInterface
 {
-    /**
-     * 进程配置
-     *
-     * @var array
-     */
-    protected static $processConfig = [
-        // 进程数
-        'count'     =>  2,
-    ];
+    use ProcessTrait;
 
     /**
      * 是否启用进程
@@ -32,7 +25,7 @@ class Business extends \GatewayWorker\BusinessWorker implements ProcessInterface
      */
     public static function enable(): bool
     {
-        return true;
+        return Config::instance()->get('gateway.business.enable', false);
     }
 
     /**
@@ -42,7 +35,7 @@ class Business extends \GatewayWorker\BusinessWorker implements ProcessInterface
      */
     public static function getProcessConfig(): array
     {
-        return static::$processConfig;
+        return Config::instance()->get('gateway.business.config', []);
     }
 
     /**
@@ -51,10 +44,12 @@ class Business extends \GatewayWorker\BusinessWorker implements ProcessInterface
     public function __construct()
     {
         // 定义配置
-        $config = Config::instance()->get('gateway.business', []);
+        $config = Config::instance()->get('gateway.business.property', []);
         foreach ($config as $key => $value) {
             $this->$key = $value;
         }
+        // Register进程服务注册地址，存在多个则使用数组，如：['192.168.123.1', '192.168.1232']
+        $this->registerAddress = (Register::getListenHost() == '0.0.0.0' ? '127.0.0.1' : Register::getListenHost()) . ':' . Register::getListenPort();
     }
 
 

@@ -8,9 +8,19 @@
 |
 */
 
+use process\gateway\Register;
+
 return [
-    // 注册中心地址
-    'registerAddress'   => '127.0.0.1:1236',
-    // 事件回调处理对象
-    'eventHandler'      => \support\gateway\Event::class
+    // 启用
+    'enable'    => true,
+    // 进程配置
+    'config'    => [
+        // 进程数
+        'count' => cpu_count(),
+    ],
+    // gateway属性配置
+    'property'  => [
+        // 事件回调处理对象
+        'eventHandler' => \app\gateway\Event::class
+    ]
 ];

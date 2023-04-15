@@ -5,29 +5,18 @@ declare(strict_types=1);
 namespace process\gateway;
 
 use mon\env\Config;
+use gaia\ProcessTrait;
 use gaia\interfaces\ProcessInterface;
 
 /**
- * workermn\channel 进程通信服务
+ * gatewaywork 的 gateway 服务进程
  * 
  * @author Mon <985558837@qq.com>
  * @version 1.0.0
  */
 class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
 {
-    /**
-     * 进程配置
-     *
-     * @var array
-     */
-    protected static $processConfig = [
-        // 监听协议断开
-        'listen'        => 'websocket://0.0.0.0:12301',
-        // 进程数，必须是1
-        'count'         =>  2,
-        // 关闭进程重启
-        'reloadable'    => false
-    ];
+    use ProcessTrait;
 
     /**
      * 是否启用进程
@@ -36,7 +25,7 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
      */
     public static function enable(): bool
     {
-        return true;
+        return Config::instance()->get('gateway.gateway.enable', false);
     }
 
     /**
@@ -46,7 +35,7 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
      */
     public static function getProcessConfig(): array
     {
-        return static::$processConfig;
+        return Config::instance()->get('gateway.gateway.config', []);
     }
 
     /**
@@ -55,12 +44,15 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
     public function __construct()
     {
         // 定义配置
-        $config = Config::instance()->get('gateway.gateway', []);
+        $config = Config::instance()->get('gateway.gateway.property', []);
         foreach ($config as $key => $value) {
             $this->$key = $value;
         }
+
         // 路由函数定义
         $this->router = [\GatewayWorker\Gateway::class, 'routerBind'];
+        // Register进程服务注册地址，存在多个则使用数组，如：['192.168.123.1', '192.168.1232']
+        $this->registerAddress = (Register::getListenHost() == '0.0.0.0' ? '127.0.0.1' : Register::getListenHost()) . ':' . Register::getListenPort();
     }
 
     /**

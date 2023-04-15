@@ -4,28 +4,20 @@ declare(strict_types=1);
 
 namespace process\gateway;
 
+use mon\env\Config;
 use Workerman\Worker;
+use gaia\ProcessTrait;
 use gaia\interfaces\ProcessInterface;
 
 /**
- * workermn\channel 进程通信服务
+ * gatewaywork 的 register 服务进程
  * 
  * @author Mon <985558837@qq.com>
  * @version 1.0.0
  */
 class Register extends \GatewayWorker\Register implements ProcessInterface
 {
-    /**
-     * 进程配置
-     *
-     * @var array
-     */
-    protected static $processConfig = [
-        // 监听协议断开
-        'listen'    => 'text://0.0.0.0:1236',
-        // 进程数，必须是1
-        'count'     =>  1,
-    ];
+    use ProcessTrait;
 
     /**
      * 是否启用进程
@@ -34,7 +26,7 @@ class Register extends \GatewayWorker\Register implements ProcessInterface
      */
     public static function enable(): bool
     {
-        return true;
+        return Config::instance()->get('gateway.register.enable', false);
     }
 
     /**
@@ -44,8 +36,9 @@ class Register extends \GatewayWorker\Register implements ProcessInterface
      */
     public static function getProcessConfig(): array
     {
-        return static::$processConfig;
+        return Config::instance()->get('gateway.register.config', []);
     }
+
 
     /**
      * 重载构造方法

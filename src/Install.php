@@ -28,7 +28,7 @@ class Install
         'process/Business.php'      => 'process/gateway/Business.php',
         'process/Gateway.php'       => 'process/gateway/Gateway.php',
         'process/Register.php'      => 'process/gateway/Register.php',
-        'process/Event.php'         => 'support/gateway/Event.php',
+        'process/Event.php'         => 'app/gateway/Event.php',
     ];
 
     /**
@@ -46,6 +46,27 @@ class Install
      * @return void
      */
     public static function install()
+    {
+        // 创建框架文件
+        $source_path = __DIR__ . DIRECTORY_SEPARATOR;
+        // 移动文件
+        foreach (static::$file_relation as $source => $dest) {
+            $sourceFile = $source_path . $source;
+            Plugin::copyFile($sourceFile, $dest);
+        }
+        // 移动目录
+        foreach (static::$dir_relation as $source => $dest) {
+            $sourceDir = $source_path . $source;
+            Plugin::copydir($sourceDir, $dest);
+        }
+    }
+
+    /**
+     * 升级更新
+     *
+     * @return void
+     */
+    public static function update()
     {
         // 创建框架文件
         $source_path = __DIR__ . DIRECTORY_SEPARATOR;
