@@ -6,4 +6,6 @@
 
 ```bash
 composer require mongdch/gaia-gateway
+
+php gaia vendor:publish gaia\gateway
 ```
