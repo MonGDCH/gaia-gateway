@@ -16,7 +16,7 @@ return [
         // 监听协议端口，只能使用text协议
         'listen'        => 'websocket://0.0.0.0:12301',
         // 进程数
-        'count'         => \Gaia\App::cpuCount(),
+        'count'         => \Gaia\App::cpuCount() * 2,
         // 关闭进程重启
         'reloadable'    => false
     ],
@@ -25,7 +25,7 @@ return [
         // 本机ip，分布式部署时使用内网ip
         'lanIp'                 => '127.0.0.1',
         //内部通讯起始端口，假如$gateway->count = 4，起始端口为4000, 则一般会使用4000 4001 4002 4003 4个端口作为内部通讯端口，注意：起始端口不要重复
-        'startPort'             => 9000,
+        'startPort'             => 4900,
         // 心跳间隔
         'pingInterval'          => 60,
         // 心跳数据，不为空时，由服务端定时向客户端发送心跳数据（不推荐）

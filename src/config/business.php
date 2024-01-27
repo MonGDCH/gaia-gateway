@@ -14,7 +14,7 @@ return [
     // 进程配置
     'config'    => [
         // 进程数
-        'count' => \gaia\App::cpuCount(),
+        'count' => \gaia\App::cpuCount() * 2,
     ],
     // gateway属性配置
     'property'  => [

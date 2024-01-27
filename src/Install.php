@@ -25,7 +25,7 @@ class Install
      * @var array
      */
     protected static $file_relation = [
-        'Event.php'             => 'app/gateway/Event.php',
+        'Event.php' => 'app/gateway/Event.php',
     ];
 
     /**
@@ -45,26 +45,32 @@ class Install
      */
     public static function install()
     {
-        // 创建框架文件
-        $source_path = __DIR__ . DIRECTORY_SEPARATOR;
-        // 移动文件
-        foreach (static::$file_relation as $source => $dest) {
-            $sourceFile = $source_path . $source;
-            Plugin::copyFile($sourceFile, $dest);
-        }
-        // 移动目录
-        foreach (static::$dir_relation as $source => $dest) {
-            $sourceDir = $source_path . $source;
-            Plugin::copydir($sourceDir, $dest);
-        }
     }
 
     /**
-     * 升级更新
+     * 更新升级
      *
      * @return void
      */
     public static function update()
+    {
+    }
+
+    /**
+     * 卸载
+     *
+     * @return void
+     */
+    public static function uninstall()
+    {
+    }
+
+    /**
+     * Gaia发布
+     *
+     * @return void
+     */
+    public static function publish()
     {
         // 创建框架文件
         $source_path = __DIR__ . DIRECTORY_SEPARATOR;
@@ -78,14 +84,5 @@ class Install
             $sourceDir = $source_path . $source;
             Plugin::copydir($sourceDir, $dest, true);
         }
-    }
-
-    /**
-     * 卸载
-     *
-     * @return void
-     */
-    public static function uninstall()
-    {
     }
 }

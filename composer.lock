@@ -8,22 +8,27 @@
     "packages": [
         {
             "name": "workerman/gateway-worker",
-            "version": "v3.0.27",
+            "version": "v3.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/GatewayWorker.git",
-                "reference": "c0cae6c0e69288ab7dcc8b25599d3b9e4f4441d2"
+                "reference": "c1552dd9fec670ecf8d5db9bfaf61e1821636f32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/GatewayWorker/zipball/c0cae6c0e69288ab7dcc8b25599d3b9e4f4441d2",
-                "reference": "c0cae6c0e69288ab7dcc8b25599d3b9e4f4441d2",
+                "url": "https://api.github.com/repos/walkor/GatewayWorker/zipball/c1552dd9fec670ecf8d5db9bfaf61e1821636f32",
+                "reference": "c1552dd9fec670ecf8d5db9bfaf61e1821636f32",
                 "shasum": ""
             },
             "require": {
-                "workerman/workerman": "^4.0.0 || ^5.0.0"
+                "workerman/workerman": "^4.0.0"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "GatewayWorker\\": "./src"
@@ -40,7 +45,7 @@
             ],
             "support": {
                 "issues": "https://github.com/walkor/GatewayWorker/issues",
-                "source": "https://github.com/walkor/GatewayWorker/tree/v3.0.27"
+                "source": "https://github.com/walkor/GatewayWorker/tree/v3.1.5"
             },
             "funding": [
                 {
@@ -52,20 +57,20 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-02-09T09:16:04+00:00"
+            "time": "2023-12-27T12:36:59+00:00"
         },
         {
             "name": "workerman/gatewayclient",
-            "version": "v3.0.14",
+            "version": "v3.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/GatewayClient.git",
-                "reference": "4362468d68251015b2b385c310252afb4d6648ed"
+                "reference": "0f67651ce92628d5e85d2ae45478f12b0d1e9f66"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/GatewayClient/zipball/4362468d68251015b2b385c310252afb4d6648ed",
-                "reference": "4362468d68251015b2b385c310252afb4d6648ed",
+                "url": "https://api.github.com/repos/walkor/GatewayClient/zipball/0f67651ce92628d5e85d2ae45478f12b0d1e9f66",
+                "reference": "0f67651ce92628d5e85d2ae45478f12b0d1e9f66",
                 "shasum": ""
             },
             "type": "library",
@@ -81,22 +86,22 @@
             "homepage": "http://www.workerman.net",
             "support": {
                 "issues": "https://github.com/walkor/GatewayClient/issues",
-                "source": "https://github.com/walkor/GatewayClient/tree/v3.0.14"
+                "source": "https://github.com/walkor/GatewayClient/tree/v3.0.17"
             },
-            "time": "2021-11-29T07:03:50+00:00"
+            "time": "2023-11-09T13:48:46+00:00"
         },
         {
             "name": "workerman/workerman",
-            "version": "v4.1.9",
+            "version": "v4.1.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/workerman.git",
-                "reference": "1f92d02c26106b5fbe6f61ea776198aad6e426f7"
+                "reference": "f7c9667c7b5387c01fa9e50ee79ed931e93ee76e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/workerman/zipball/1f92d02c26106b5fbe6f61ea776198aad6e426f7",
-                "reference": "1f92d02c26106b5fbe6f61ea776198aad6e426f7",
+                "url": "https://api.github.com/repos/walkor/workerman/zipball/f7c9667c7b5387c01fa9e50ee79ed931e93ee76e",
+                "reference": "f7c9667c7b5387c01fa9e50ee79ed931e93ee76e",
                 "shasum": ""
             },
             "require": {
@@ -146,7 +151,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2023-03-10T13:59:12+00:00"
+            "time": "2023-08-09T03:37:45+00:00"
         }
     ],
     "packages-dev": [],
@@ -159,5 +164,5 @@
         "php": ">=7.2.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
