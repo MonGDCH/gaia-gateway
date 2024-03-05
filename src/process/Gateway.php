@@ -94,10 +94,6 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
         $this->_gatewayPort = substr(strrchr($worker->getSocketName(), ':'), 1);
 
         parent::onWorkerStart();
-
-        // $args = func_get_args();
-        // $this->id = $args[0]->id;
-        // parent::onWorkerStart();
     }
 
     /**

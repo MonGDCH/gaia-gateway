@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85a00dcf298ad9dbf69122b31cb1db12",
+    "content-hash": "3e0ff674b6c9cbfab1106ed482d0e0ba",
     "packages": [
         {
             "name": "workerman/gateway-worker",
@@ -59,37 +59,6 @@
                 }
             ],
             "time": "2024-02-19T00:58:32+00:00"
-        },
-        {
-            "name": "workerman/gatewayclient",
-            "version": "v3.0.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/walkor/GatewayClient.git",
-                "reference": "0f67651ce92628d5e85d2ae45478f12b0d1e9f66"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/walkor/GatewayClient/zipball/0f67651ce92628d5e85d2ae45478f12b0d1e9f66",
-                "reference": "0f67651ce92628d5e85d2ae45478f12b0d1e9f66",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "GatewayClient\\": "./"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "homepage": "http://www.workerman.net",
-            "support": {
-                "issues": "https://github.com/walkor/GatewayClient/issues",
-                "source": "https://github.com/walkor/GatewayClient/tree/v3.0.17"
-            },
-            "time": "2023-11-09T13:48:46+00:00"
         },
         {
             "name": "workerman/workerman",
