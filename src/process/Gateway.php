@@ -52,7 +52,7 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
         // 路由函数定义
         $this->router = [\GatewayWorker\Gateway::class, 'routerBind'];
         // Register进程服务注册地址，存在多个则使用数组，如：['192.168.123.1', '192.168.1232']
-        $this->registerAddress = (Register::getListenHost() == '0.0.0.0' ? '127.0.0.1' : Register::getListenHost()) . ':' . Register::getListenPort();
+        $this->registerAddress = Register::getListenHost() . ':' . Register::getListenPort();
     }
 
     /**

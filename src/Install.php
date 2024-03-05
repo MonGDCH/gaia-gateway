@@ -24,9 +24,7 @@ class Install
      *
      * @var array
      */
-    protected static $file_relation = [
-        'Event.php' => 'app/gateway/Event.php',
-    ];
+    protected static $file_relation = [];
 
     /**
      * 移动的文件夹
@@ -35,6 +33,7 @@ class Install
      */
     protected static $dir_relation = [
         'config'    => 'config/gateway',
+        'support'   => 'support/gateway',
         'process'   => 'process/gateway'
     ];
 
@@ -45,6 +44,7 @@ class Install
      */
     public static function install()
     {
+        echo 'Gaia-gateway installation successful, please execute `php gaia vendor:publish gaia\gateway`' . PHP_EOL;
     }
 
     /**
@@ -54,6 +54,7 @@ class Install
      */
     public static function update()
     {
+        echo 'Gaia-gateway upgrade successful, please execute `php gaia vendor:publish gaia\gateway`' . PHP_EOL;
     }
 
     /**

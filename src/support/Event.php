@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace app\gateway;
+namespace support\gateway;
 
 use GatewayWorker\Lib\Gateway;
 use GatewayWorker\BusinessWorker;
