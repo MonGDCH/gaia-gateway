@@ -10,7 +10,7 @@
 
 return [
     // 启用
-    'enable'    => true,
+    'enable'    => false,
     // 进程配置
     'config'    => [
         // 监听协议端口，只能使用text协议
@@ -34,5 +34,7 @@ return [
         'pingNotResponseLimit'  => 1,
         // 传输协议，一般不需要改动，如需使用ssl，则修改为ssl
         'transport'             => 'tcp',
+        // 秘钥
+        'secretKey'             => env('GATEWAY_SECRET_KEY', ''),
     ]
 ];

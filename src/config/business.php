@@ -10,15 +10,17 @@
 
 return [
     // 启用
-    'enable'    => true,
+    'enable'    => false,
     // 进程配置
     'config'    => [
         // 进程数
         'count' => \gaia\App::cpuCount() * 2,
     ],
-    // gateway属性配置
+    // business属性配置
     'property'  => [
         // 事件回调处理对象
-        'eventHandler' => \app\gateway\Event::class
+        'eventHandler'  => \support\gateway\Event::class,
+        // 秘钥
+        'secretKey'     => env('GATEWAY_SECRET_KEY', ''),
     ]
 ];

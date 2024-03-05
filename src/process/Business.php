@@ -52,7 +52,6 @@ class Business extends \GatewayWorker\BusinessWorker implements ProcessInterface
         $this->registerAddress = Register::getListenHost() . ':' . Register::getListenPort();
     }
 
-
     /**
      * 进程启动
      *

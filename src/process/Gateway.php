@@ -7,6 +7,7 @@ namespace process\gateway;
 use mon\env\Config;
 use gaia\ProcessTrait;
 use gaia\interfaces\ProcessInterface;
+use Workerman\Connection\TcpConnection;
 
 /**
  * gatewaywork 的 gateway 服务进程
@@ -88,7 +89,15 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
 
         $args = func_get_args();
         $this->id = $args[0]->id;
+
+        $worker = func_get_arg(0);
+        $this->_gatewayPort = substr(strrchr($worker->getSocketName(), ':'), 1);
+
         parent::onWorkerStart();
+
+        // $args = func_get_args();
+        // $this->id = $args[0]->id;
+        // parent::onWorkerStart();
     }
 
     /**
@@ -97,17 +106,30 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
      * @param TcpConnection $connection
      * @return void
      */
-    public function onConnect($connection)
+    public function onConnect(TcpConnection $connection)
     {
         parent::onClientConnect($connection);
     }
 
-    public function onClose($connection)
+    /**
+     * 断开链接
+     *
+     * @param TcpConnection $connection
+     * @return void
+     */
+    public function onClose(TcpConnection $connection)
     {
         parent::onClientClose($connection);
     }
 
-    public function onMessage($connection, $data)
+    /**
+     * 接收通信
+     *
+     * @param TcpConnection $connection
+     * @param mixed $data
+     * @return void
+     */
+    public function onMessage(TcpConnection $connection, $data)
     {
         parent::onClientMessage($connection, $data);
     }

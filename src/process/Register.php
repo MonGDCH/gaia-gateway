@@ -39,12 +39,16 @@ class Register extends \GatewayWorker\Register implements ProcessInterface
         return Config::instance()->get('gateway.register.config', []);
     }
 
-
     /**
      * 重载构造方法
      */
     public function __construct()
     {
+        // 定义配置
+        $config = Config::instance()->get('gateway.register.property', []);
+        foreach ($config as $key => $value) {
+            $this->$key = $value;
+        }
     }
 
     /**
