@@ -15,3 +15,5 @@ php gaia vendor:publish gaia\gateway
 ```bash
 
 php ./bin/gateway start
+
+```
