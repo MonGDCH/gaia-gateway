@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "workerman/gateway-worker",
-            "version": "v3.1.6",
+            "version": "v3.1.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/walkor/GatewayWorker.git",
-                "reference": "21d8216a496bd885c045fcab24c6e4788b81fdb6"
+                "reference": "89478a15d1f2a8fe48070e631af977bbebeaf0d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/walkor/GatewayWorker/zipball/21d8216a496bd885c045fcab24c6e4788b81fdb6",
-                "reference": "21d8216a496bd885c045fcab24c6e4788b81fdb6",
+                "url": "https://api.github.com/repos/walkor/GatewayWorker/zipball/89478a15d1f2a8fe48070e631af977bbebeaf0d8",
+                "reference": "89478a15d1f2a8fe48070e631af977bbebeaf0d8",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
             ],
             "support": {
                 "issues": "https://github.com/walkor/GatewayWorker/issues",
-                "source": "https://github.com/walkor/GatewayWorker/tree/v3.1.6"
+                "source": "https://github.com/walkor/GatewayWorker/tree/v3.1.17"
             },
             "funding": [
                 {
@@ -58,7 +58,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2024-02-19T00:58:32+00:00"
+            "time": "2024-03-07T01:55:27+00:00"
         },
         {
             "name": "workerman/workerman",

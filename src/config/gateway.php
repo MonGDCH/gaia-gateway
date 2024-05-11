@@ -9,8 +9,8 @@
 */
 
 return [
-    // 启用
-    'enable'    => false,
+    // 启用，gaia批量启动进程时有效
+    'enable'    => env('GATEWAY_SERVER', false),
     // 进程配置
     'config'    => [
         // 监听协议端口，只能使用text协议
@@ -32,7 +32,7 @@ return [
         'pingData'              => '',
         // 多少心跳间隔时间内客户端未报通信则断开连接(pingInterval * pingNotResponseLimit = 时间间隔)，0表示允许客户端不发送心跳
         'pingNotResponseLimit'  => 1,
-        // 传输协议，一般不需要改动，如需使用ssl，则修改为ssl
+        // 传输协议，一般不需要改动，如需使用ssl，则修改为ssl，建议使用nginx做代理ssl。https://www.workerman.net/doc/workerman/faq/secure-websocket-server.html
         'transport'             => 'tcp',
         // 秘钥
         'secretKey'             => env('GATEWAY_SECRET_KEY', ''),

@@ -24,7 +24,9 @@ class Install
      *
      * @var array
      */
-    protected static $file_relation = [];
+    protected static $file_relation = [
+        'gateway.php' => 'bin/gateway'
+    ];
 
     /**
      * 移动的文件夹
@@ -33,8 +35,7 @@ class Install
      */
     protected static $dir_relation = [
         'config'    => 'config/gateway',
-        'support'   => 'support/gateway',
-        'process'   => 'process/gateway'
+        'support'   => 'support/gateway'
     ];
 
     /**

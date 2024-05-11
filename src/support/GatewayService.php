@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace support\gateway;
 
 use mon\util\Instance;
-use process\gateway\Register;
 use GatewayWorker\Lib\Gateway;
+use support\gateway\process\Register;
 
 /**
  * Gateway客户端服务封装

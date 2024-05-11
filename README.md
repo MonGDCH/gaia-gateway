@@ -9,3 +9,9 @@ composer require mongdch/gaia-gateway
 
 php gaia vendor:publish gaia\gateway
 ```
+
+### 启动
+
+```bash
+
+php ./bin/gateway start

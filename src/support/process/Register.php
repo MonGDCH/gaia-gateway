@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace process\gateway;
+namespace support\gateway\process;
 
 use mon\env\Config;
 use Workerman\Worker;
