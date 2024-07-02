@@ -7,7 +7,6 @@ namespace support\gateway;
 use mon\env\Config;
 use mon\log\Logger;
 use mon\thinkORM\ORM;
-use GatewayWorker\Lib\Gateway;
 use support\cache\CacheService;
 use GatewayWorker\BusinessWorker;
 
@@ -54,7 +53,7 @@ class Event
      */
     public static function onConnect(string $client_id)
     {
-        Gateway::sendToCurrentClient('Hello！' . $client_id);
+        GatewayService::instance()->sendToCurrentClient('Hello！' . $client_id);
     }
 
     /**
@@ -67,7 +66,7 @@ class Event
      */
     public static function onWebSocketConnect(string $client_id, array $data)
     {
-        Gateway::sendToCurrentClient('Your ID => ' . $client_id);
+        GatewayService::instance()->sendToCurrentClient('Your ID => ' . $client_id);
     }
 
     /**
@@ -79,7 +78,7 @@ class Event
      */
     public static function onMessage(string $client_id, string $message)
     {
-        Gateway::sendToCurrentClient('Your Message => ' . $message);
+        GatewayService::instance()->sendToCurrentClient('Your Message => ' . $message);
     }
 
     /**

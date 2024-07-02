@@ -13,6 +13,7 @@ use support\gateway\process\Register;
  * 
  * @see 注意：发送的数据不会经过Event.php，而是直接经由Gateway进程转发给客户端
  * 
+ * @method bool sendToCurrentClient(string $message, bool $raw = false) 向当前客户端连接发送消息
  * @method void sendToAll(string $message, array $client_id_array = null, array $exclude_client_id = null, bool $raw = false) 向所有客户端连接(或者 client_id_array 指定的客户端连接)广播消息
  * @method void sendToClient(string $client_id, string $message) 向某个client_id对应的连接发消息
  * @method void sendToUid($uid, string $message, bool $raw = false) 向所有 uid 的客户端发送消息
@@ -45,7 +46,7 @@ use support\gateway\process\Register;
  * @method array getAllGroupUidList() 获取所有分组uid在线列表
  * @method array getAllGroupClientIdList() 获取所有群组在线client_id列表
  * @method array getAllGroupClientIdCount() 获取所有群组在线client_id数量，也就是获取每个群组在线连接数
- * @method bool destoryCurrentClient() 踢掉当前客户端并直接立即销毁相关连接
+ * @method bool destoryCurrentClient() 踢掉当前客户端并直接立即销毁相关连接 * 
  * 
  * @author Mon <985558837@qq.com>
  * @version 1.0.0
