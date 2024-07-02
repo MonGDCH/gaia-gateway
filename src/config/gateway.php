@@ -9,14 +9,12 @@
 */
 
 return [
-    // 启用，gaia批量启动进程时有效
-    'enable'    => env('GATEWAY_SERVER', false),
     // 进程配置
     'config'    => [
         // 监听协议端口，只能使用text协议
         'listen'        => 'websocket://0.0.0.0:12301',
         // 进程数
-        'count'         => \Gaia\App::cpuCount() * 2,
+        'count'         => \Gaia\App::cpuCount(),
         // 关闭进程重启
         'reloadable'    => false
     ],

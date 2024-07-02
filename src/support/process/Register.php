@@ -20,16 +20,6 @@ class Register extends \GatewayWorker\Register implements ProcessInterface
     use ProcessTrait;
 
     /**
-     * 是否启用进程
-     *
-     * @return boolean
-     */
-    public static function enable(): bool
-    {
-        return Config::instance()->get('gateway.register.enable', false);
-    }
-
-    /**
      * 获取进程配置
      *
      * @return array

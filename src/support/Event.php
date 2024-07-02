@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace support\gateway;
 
+use mon\env\Config;
+use mon\log\Logger;
+use mon\thinkORM\ORM;
 use GatewayWorker\Lib\Gateway;
+use support\cache\CacheService;
 use GatewayWorker\BusinessWorker;
 
 /**
@@ -23,6 +27,22 @@ class Event
      */
     public static function onWorkerStart(BusinessWorker $worker)
     {
+        // 日志通道初始化
+        $log_channel = Config::instance()->get('gateway.app.log.channel', 'gateway');
+        $log_config = Config::instance()->get('gateway.app.log.config', []);
+        Logger::instance()->createChannel($log_channel, $log_config);
+        Logger::instance()->setDefaultChannel($log_channel);
+
+        // 定义数据库配置，自动识别是否已安装ORM库
+        if (class_exists(ORM::class)) {
+            $config = Config::instance()->get('database', []);
+            // 识别是否存在缓存库
+            if (class_exists(CacheService::class)) {
+                ORM::register(true, $config, Logger::instance()->channel(), CacheService::instance()->getService()->store());
+            } else {
+                ORM::register(true, $config, Logger::instance()->channel());
+            }
+        }
     }
 
     /**

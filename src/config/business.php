@@ -9,12 +9,10 @@
 */
 
 return [
-    // 启用，gaia批量启动进程时有效
-    'enable'    => env('GATEWAY_SERVER', false),
     // 进程配置
     'config'    => [
         // 进程数
-        'count' => \gaia\App::cpuCount() * 2,
+        'count' => \gaia\App::cpuCount(),
     ],
     // business属性配置
     'property'  => [
