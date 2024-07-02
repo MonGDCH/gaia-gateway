@@ -25,7 +25,7 @@ class Install
      * @var array
      */
     protected static $file_relation = [
-        'gateway.php' => 'bin/gateway'
+        'gateway.php' => 'bin/gateway.php'
     ];
 
     /**
