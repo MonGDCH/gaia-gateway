@@ -20,6 +20,13 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
     use ProcessTrait;
 
     /**
+     * 自动加载的根路径，无需赋值，用于兼容4.0版本
+     *
+     * @var string
+     */
+    protected $_autoloadRootPath = '';
+
+    /**
      * 获取进程配置
      *
      * @return array
