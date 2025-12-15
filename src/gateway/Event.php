@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace support\gateway;
+namespace app\gateway;
 
 use mon\env\Config;
 use mon\log\Logger;
 use mon\thinkORM\ORM;
-use support\cache\CacheService;
 use GatewayWorker\BusinessWorker;
+use support\gateway\GatewayService;
 
 /**
  * GateWay事件处理回调
@@ -34,13 +34,7 @@ class Event
 
         // 定义数据库配置，自动识别是否已安装ORM库
         if (class_exists(ORM::class)) {
-            $config = Config::instance()->get('database', []);
-            // 识别是否存在缓存库
-            if (class_exists(CacheService::class)) {
-                ORM::register(true, $config, Logger::instance()->channel(), CacheService::instance()->getService()->store());
-            } else {
-                ORM::register(true, $config, Logger::instance()->channel());
-            }
+            ORM::register(true);
         }
     }
 
@@ -78,6 +72,12 @@ class Event
      */
     public static function onMessage(string $client_id, string $message)
     {
+        if (empty($message)) {
+            return;
+        }
+        if (strtoupper($message) == 'PING') {
+            GatewayService::instance()->sendToCurrentClient('PONG');
+        }
         GatewayService::instance()->sendToCurrentClient('Your Message => ' . $message);
     }
 
@@ -87,7 +87,5 @@ class Event
      * @param string $client_id 连接id
      * @return void
      */
-    public static function onClose(string $client_id)
-    {
-    }
+    public static function onClose(string $client_id) {}
 }

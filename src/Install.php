@@ -35,7 +35,8 @@ class Install
      */
     protected static $dir_relation = [
         'config'    => 'config/gateway',
-        'support'   => 'support/gateway'
+        'support'   => 'support/gateway',
+        'gateway'   => 'app/gateway',
     ];
 
     /**

@@ -17,7 +17,7 @@ return [
     // business属性配置
     'property'  => [
         // 事件回调处理对象
-        'eventHandler'  => \support\gateway\Event::class,
+        'eventHandler'  => \app\gateway\Event::class,
         // 秘钥
         'secretKey'     => env('GATEWAY_SECRET_KEY', ''),
     ]
