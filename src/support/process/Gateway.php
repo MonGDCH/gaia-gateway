@@ -33,7 +33,9 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
      */
     public static function getProcessConfig(): array
     {
-        return Config::instance()->get('gateway.gateway.config', []);
+        $config = Config::instance()->get('gateway.gateway.config', []);
+        $config['count'] = $config['count'] == 0 ? \gaia\App::cpuCount() : $config['count'];
+        return $config;
     }
 
     /**

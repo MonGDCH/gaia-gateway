@@ -25,7 +25,9 @@ class Business extends \GatewayWorker\BusinessWorker implements ProcessInterface
      */
     public static function getProcessConfig(): array
     {
-        return Config::instance()->get('gateway.business.config', []);
+        $config = Config::instance()->get('gateway.business.config', []);
+        $config['count'] = $config['count'] == 0 ? \gaia\App::cpuCount() : $config['count'];
+        return $config;
     }
 
     /**
