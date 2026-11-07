@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace support\gateway;
 
+use mon\env\Config;
 use mon\util\Instance;
 use GatewayWorker\Lib\Gateway;
 use support\gateway\process\Register;
@@ -60,7 +61,8 @@ class GatewayService
      */
     public function __construct()
     {
-        Gateway::$secretKey = env('GATEWAY_SECRET_KEY', '');
+        // 优先使用发布配置中的秘钥，与register进程配置保持一致，未发布配置时回退env
+        Gateway::$secretKey = Config::instance()->get('gateway.register.property.secretKey', env('GATEWAY_SECRET_KEY', ''));
         Gateway::$registerAddress = Register::getListenHost() . ':' . Register::getListenPort();
     }
 

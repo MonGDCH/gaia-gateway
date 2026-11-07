@@ -34,7 +34,9 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
     public static function getProcessConfig(): array
     {
         $config = Config::instance()->get('gateway.gateway.config', []);
-        $config['count'] = $config['count'] == 0 ? \gaia\App::cpuCount() : $config['count'];
+        // 先强转再比较，兼容env返回的字符串、空串等场景，0或无效值则按cpu核心数分配
+        $count = (int) ($config['count'] ?? 0);
+        $config['count'] = $count === 0 ? \gaia\App::cpuCount() : $count;
         return $config;
     }
 
@@ -51,7 +53,7 @@ class Gateway extends \GatewayWorker\Gateway implements ProcessInterface
 
         // 路由函数定义
         $this->router = [\GatewayWorker\Gateway::class, 'routerBind'];
-        // Register进程服务注册地址，存在多个则使用数组，如：['192.168.123.1', '192.168.1232']
+        // Register进程服务注册地址，存在多个则使用数组，如：['192.168.1.1', '192.168.1.2']
         $this->registerAddress = Register::getListenHost() . ':' . Register::getListenPort();
     }
 

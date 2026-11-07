@@ -21,7 +21,7 @@ return [
     // gateway属性配置
     'property'  => [
         // 本机ip，分布式部署时使用内网ip
-        'lanIp'                 => '127.0.0.1',
+        'lanIp'                 => env('GATEWAY_LAN_IP', '127.0.0.1'),
         //内部通讯起始端口，假如$gateway->count = 4，起始端口为4000, 则一般会使用4000 4001 4002 4003 4个端口作为内部通讯端口，注意：起始端口不要重复
         'startPort'             => env('GATEWAY_START_PORT', 4900),
         // 心跳间隔

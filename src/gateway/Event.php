@@ -77,6 +77,7 @@ class Event
         }
         if (strtoupper($message) == 'PING') {
             GatewayService::instance()->sendToCurrentClient('PONG');
+            return;
         }
         GatewayService::instance()->sendToCurrentClient('Your Message => ' . $message);
     }
